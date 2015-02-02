@@ -4,11 +4,11 @@ driver_config:
     require_chef_omnibus: 11.16.4
 
 platforms:
-  - name: ubuntu
+  - name: debian
     driver:
       vagrantfile_erb: Vagrantfile.erb
-      box: ubuntu-14.04-chef
-      box_url: http://bit.ly/1qBrpXj
+      box: debian-7-chef
+      box_url: http://bit.ly/dsi-debian-7-box
       network:
         - ['private_network', {ip: '172.28.128.3'}]
       customize:
@@ -24,6 +24,17 @@ suites:
     encrypted_data_bag_secret_key_path: 'test/integration/default/encrypted_data_bag_secret'
     run_list:
       - recipe[apt::default]
-      - recipe[redmine::default]
+      - recipe[redmine::database]
+      - recipe[redmine::apps]
     attributes:
       redmine:
+        version: '2.6.1'
+        language: 'fr'
+        domain_name: 'redmine.dev'
+        mysql_root_pw: 'password'
+        apps: 'redmine'
+        admin: 'redmine'
+        password: 'password'
+        db_server: 'localhost'
+        apps_server: 'localhost'
+        group: 'redmine'
