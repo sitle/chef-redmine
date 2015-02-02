@@ -57,7 +57,7 @@ cd chef-redmine
 vagrant up
 ```
 
-Note : You can, then, access to it (http://redmin.dev - admin/admin).
+Note : You can, then, access to it (http://redmine.dev - admin/admin).
 
 #### Development
 
@@ -69,7 +69,7 @@ cd chef-redmine
 kitchen converge default
 ```
 
-Note : You can, then, access to it (http://redmin.dev - admin/admin).
+Note : You can, then, access to it (http://redmine.dev - admin/admin).
 
 ## License and Authors
 
